@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2005-2013 The Kuali Foundation
+
+    Licensed under the Educational Community License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.opensource.org/licenses/ecl2.php
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+                           
+  <bean id="TrainingApplicationMaintenanceDocument" parent="uifMaintenanceDocumentEntry">
+    <property name="dataObjectClass" value="org.kuali.rice.krworkshop.TrainingApplication"/>
+    <property name="documentTypeName" value="AdmissionsWorkflowDocument"/>
+    <property name="lockingKeys">
+      <list>
+        <value>id</value>
+      </list>
+    </property>
+    <property name="workflowAttributes">
+		<bean parent="WorkflowAttributes">
+			<property name="routingTypeDefinitions">
+				<map>
+					<entry key="SomeRouteNodeName">
+					
+					
+						<bean parent="RoutingTypeDefinition">
+					    	<property name="routingAttributes">
+					    		<list>
+					    			<bean parent="RoutingAttribute" p:qualificationAttributeName="attributeOneForWorkflow" />
+					    			<bean parent="RoutingAttribute" p:qualificationAttributeName="attributeTwoForWorkflow" />
+					    		</list>
+					    	</property>
+					    	<property name="documentValuePathGroups">
+					    		<list>
+					    			<bean parent="DocumentValuePathGroup">
+										<property name="documentValues">
+									   		<list>
+									   			<value>object path within document for attributeOne</value>
+									   			<value>object path within document for attributeTwo</value>
+									   		</list>
+								   		</property>
+								   	</bean>
+					    		</list>
+					    	</property>					
+						</bean>
+						
+						
+					</entry>
+				</map>
+			</property>
+		</bean>
+    </property>
+  </bean>
+  <!-- Used as part of exercise 5  -->
+  <bean id="DecisionWithNotificationDefinition" parent="RoutingTypeDefinition">
+		<property name="routingAttributes">
+			<list>
+				<bean parent="RoutingAttribute" p:qualificationAttributeName="splitNodeAttribute" />
+			</list>
+		</property>
+		<property name="documentValuePathGroups">
+			<list>
+				<bean parent="DocumentValuePathGroup">
+					<property name="documentValues">
+						<list>
+							<value>newMaintainableObject.dataObject.decisionStatus
+							</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+  </bean>
+</beans>
