@@ -83,11 +83,11 @@
 
 		<!-- training solutions -->
 		<training.db.solution.sql></training.db.solution.sql>		
-		<training.db.solution1.sql>src/main/config/db/training/${db.vendor}/solutions/001-solution.sql</training.db.solution1.sql>
-		<training.db.solution2.sql>src/main/config/db/training/${db.vendor}/solutions/002-solution.sql</training.db.solution2.sql>
-		<training.db.solution3.sql>src/main/config/db/training/${db.vendor}/solutions/003-solution.sql</training.db.solution3.sql>
-		<training.db.solution4.sql>src/main/config/db/training/${db.vendor}/solutions/004-solution.sql</training.db.solution4.sql>
-		<training.db.solution5.sql>src/main/config/db/training/${db.vendor}/solutions/005-solution.sql</training.db.solution5.sql>
+		<training.db.solution1.sql>src/main/config/workflow/db/${db.vendor}/solutions/001-solution.sql</training.db.solution1.sql>
+		<training.db.solution2.sql>src/main/config/workflow/db/${db.vendor}/solutions/002-solution.sql</training.db.solution2.sql>
+		<training.db.solution3.sql>src/main/config/workflow/db/${db.vendor}/solutions/003-solution.sql</training.db.solution3.sql>
+		<training.db.solution4.sql>src/main/config/workflow/db/${db.vendor}/solutions/004-solution.sql</training.db.solution4.sql>
+		<training.db.solution5.sql>src/main/config/workflow/db/${db.vendor}/solutions/005-solution.sql</training.db.solution5.sql>
 	</properties>
 
 	<repositories>
@@ -258,7 +258,7 @@
 								<username>${impex.dba.username}</username>
 								<password>${impex.dba.password}</password>
 								<srcFiles>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/000-rice-db-232.sql</srcFile>
+									<srcFile>src/main/config/shared/db/${db.vendor}/setup/000-rice-db-232.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
@@ -273,12 +273,12 @@
 								<username>${impex.username}</username>
 								<password>${impex.password}</password>
 								<srcFiles>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/001-dataobjects.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/002-namespace.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/003-roles.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/004-permissions.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/005-responsibilities.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/setup/006-role-members.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/001-dataobjects.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/002-namespace.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/003-roles.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/004-permissions.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/005-responsibilities.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/006-role-members.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
@@ -293,7 +293,7 @@
 								<username>${impex.username}</username>
 								<password>${impex.password}</password>
 								<srcFiles>
-									<srcFile>src/main/config/db/training/${db.vendor}/updates/003-roles.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/updates/003-roles.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
@@ -308,9 +308,9 @@
 								<username>${impex.username}</username>
 								<password>${impex.password}</password>
 								<srcFiles>
-									<srcFile>src/main/config/db/training/${db.vendor}/updates/003-roles.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/updates/005-responsibilities.sql</srcFile>
-									<srcFile>src/main/config/db/training/${db.vendor}/updates/006-role-members.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/updates/003-roles.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/updates/005-responsibilities.sql</srcFile>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/updates/006-role-members.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
