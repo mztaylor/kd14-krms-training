@@ -56,12 +56,40 @@ Select 'apply' button and 'run' button.  The server should startup and you can s
  - Terms
  - Facts
 
+## Extra Help - Setting up a tomcat 7 server from scratch 
+
+You may choose to install this project from an existing eclipse or spring tool suite.  If that is the case you will want to setup your server.  For this project we're using tomcat7 server.  When you select 'Run as..' > 'Server', it will give you an option to manually setup a server.  On this screen select 'Apache' and 'Tomcat v7.0 Server'.  The next tab will give you the option of selecting an existing server or downloading one. If you choose to download or setup a server, you will still need two additional jars in your common lib library, spring-instrument.jar and the  mysql-connector-java.jar.  You can find these on 'search.maven.org', download and add to your common/lib directory in the tomcat 7 directory. Afterwards you will want to update the Launch Configuration arguments tab with the vm setting in the earlier instructions and update the 'Timeouts' tab
+with 180 seconds for 'start'.
+
+
 # Troubleshooting
 
 I'm getting 'Unable to update maven project - Unsupported IClasspathEntry kind=4'
 - Right click on the project, select maven - disable maven nature
 - Right click -> Run as -> Maven 'eclipse:clean'
 - Right click -> Configure -> Enable Maven nature
+
+I'm getting red X's when I import the project
+- Right click on the project and select 'Maven' > 'Update Project'
+
+I'm getting an error about unable to import 'Git-ish'
+- Do a step by step import using next rather than finish
+
+I'm getting 'Access denied for user 'root'@'localhost' (using password: NO) -> [Help 1]' when building my database
+- Some users may have 'root' or another password setup by default in their database.  This project is currently setup
+ to use no password for the mysql database.  Update your pom.xml file property 'impex.dba.password' to the correct password
+ (generally root)
+
+I'm getting unable to start server and the details mention the phrase 'out of sync'
+- You need to right click on your project and select 'refresh', then restart your server
+
+My server is failing to start and giving a 45 second error
+- Go to server screen and search for 'Timeouts' section.  Increase the 'start' timeout to 300 seconds
+
+I can't find the arguments tab
+- Go to server screen and search for 'Launch Configuration' in the 'General Information' section
+
+
 
 
 
