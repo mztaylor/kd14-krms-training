@@ -84,7 +84,7 @@ I'm getting unable to start server and the details mention the phrase 'out of sy
 - You need to right click on your project and select 'refresh', then restart your server
 
 My server is failing to start and giving a 45 second error
-- Go to server screen and search for 'Timeouts' section.  Increase the 'start' timeout to 180 seconds
+- Go to server screen and search for 'Timeouts' section.  Increase the 'start' timeout to 300 seconds
 
 I can't find the arguments tab
 - Go to server screen and search for 'Launch Configuration' in the 'General Information' section
