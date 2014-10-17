@@ -65,7 +65,7 @@
     <property name="headerText" value="Term and College Information"/>
     <property name="items">
       <list>
-        <bean parent="Uif-InputField-LabelTop" p:label="Term" p:propertyName="term">
+        <bean parent="Uif-InputField" p:label="Term" p:propertyName="term">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -79,7 +79,7 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField-LabelTop" p:label="College" p:propertyName="college">
+        <bean parent="Uif-InputField" p:label="College" p:propertyName="college">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -95,7 +95,7 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus">
+        <bean parent="Uif-InputField" p:label="Campus" p:propertyName="campus">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">

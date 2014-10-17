@@ -30,8 +30,10 @@ import java.util.Map;
  */
 public class TrainingApplicationMaintainableImpl extends MaintainableImpl {
 
-    @Override
-    public void performApplyModel(View view, Object model) {
+
+    /** TODO: review class and determine needed changes
+      public void performApplyModel(View view, Object model) {
+     
         ProcessLogger.trace("apply-model:" + view.getId());
 
         // get action flag and edit modes from authorizer/presentation controller
@@ -51,4 +53,5 @@ public class TrainingApplicationMaintainableImpl extends MaintainableImpl {
             ((ViewModel) model).setDefaultsApplied(true);
         }
     }
+    **/
 }
