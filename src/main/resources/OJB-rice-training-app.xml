@@ -59,6 +59,12 @@
     <field-descriptor name="state" column="ST_CD" jdbc-type="VARCHAR"/>
     <field-descriptor name="zip" column="ZIP" jdbc-type="VARCHAR"/>
     <field-descriptor name="decisionStatus" column="DEC_STATUS" jdbc-type="VARCHAR"/>
+
+      <collection-descriptor name="questions" element-class-ref="org.kuali.rice.krworkshop.TrainingApplicationQuestion"
+    auto-delete="true" auto-retrieve="true" auto-update="true">
+      <inverse-foreignkey field-ref="questionId"/>
+    </collection-descriptor>
+
   </class-descriptor>
 
 <class-descriptor class="org.kuali.rice.krworkshop.TrainingApplicationPreviousEducation" table="TRNG_APP_PREV_EXPER_T">
@@ -78,5 +84,14 @@
     <field-descriptor name="address" column="ADDR" jdbc-type="VARCHAR"/>
     <field-descriptor name="relationship" column="RELATN" jdbc-type="VARCHAR"/>
  </class-descriptor>
+
+<class-descriptor class="org.kuali.rice.krworkshop.TrainingApplicationQuestion" table="TRNG_APP_QST_T">
+	<field-descriptor name="questionId" column="TRAINING_APP_QST_ID" jdbc-type="VARCHAR" indexed="true"/>
+	<field-descriptor name="applicationId" column="TRAINING_APP_DOC_ID" jdbc-type="BIGINT" indexed="true"/>
+    <field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" indexed="true"/>
+    <field-descriptor name="versionNumber" column="VER_NBR" jdbc-type="BIGINT" locking="true"/>
+    <field-descriptor name="question" column="QUESTION" jdbc-type="VARCHAR"/>
+    <field-descriptor name="answer" column="ANSWER" jdbc-type="VARCHAR"/>
+</class-descriptor>
 -->
 </descriptor-repository>

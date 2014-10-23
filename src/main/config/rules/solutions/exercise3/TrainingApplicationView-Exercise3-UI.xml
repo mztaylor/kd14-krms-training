@@ -377,6 +377,8 @@
     <property name="layoutManager.numberOfColumns" value="4"/>
     <property name="renderAddLine" value="false"/>
     <property name="renderLineActions" value="false"/>
+    <property name="conditionalRefresh" value="@{college or campus}"/>
+    <property name="methodToCallOnRefresh" value="refreshQuestionnaire"/>
     <property name="items">
       <list>
         <bean parent="Uif-InputField" p:label="Question" p:propertyName="question" p:readOnly="true"/>
