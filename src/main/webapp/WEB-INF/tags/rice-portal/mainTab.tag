@@ -30,7 +30,11 @@ To see other files that can be overriden, look at the org.kuali.rice:rice-web mo
 </td>
 <td class="content" valign="top">
   <mainChannel:kew />
+  <mainChannel:workflow />
+
 </td>
 <td class="content" valign="top">
-  <mainChannel:workflow />
+  <mainChannel:krms />
+  <mainChannel:rules />
+
 </td>

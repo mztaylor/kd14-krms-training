@@ -39,10 +39,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/collegeapp")
 public class TrainingApplicationController extends UifControllerBase {
 
-    @Override
-    protected UifFormBase createInitialForm(HttpServletRequest request) {
-        return new TrainingApplicationForm();
-    }
+	@Override
+	protected UifFormBase createInitialForm() {
+		// TODO Auto-generated method stub
+		return new TrainingApplicationForm();
+	}
 
 
 /*    public ModelAndView submit(@ModelAttribute("KualiForm") UifFormBase uifForm, BindingResult result,

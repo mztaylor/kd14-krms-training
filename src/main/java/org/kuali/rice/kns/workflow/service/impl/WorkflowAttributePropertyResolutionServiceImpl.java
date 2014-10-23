@@ -74,7 +74,7 @@ public class WorkflowAttributePropertyResolutionServiceImpl implements WorkflowA
             document.populateDocumentForRouting();
             RoutingAttributeTracker routingAttributeTracker = new RoutingAttributeTracker(routingTypeDefinition.getRoutingAttributes());
             for (DocumentValuePathGroup documentValuePathGroup : routingTypeDefinition.getDocumentValuePathGroups()) {
-                qualifiers.addAll(resolveDocumentValuePath(document, documentValuePathGroup, routingAttributeTracker));
+                //qualifiers.addAll(resolveDocumentValuePath(document, documentValuePathGroup, routingAttributeTracker));
                 routingAttributeTracker.reset();
             }
         }
