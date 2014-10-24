@@ -32,6 +32,9 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
     private String state;
     private String zip;
     
+    private String testScore;
+    private String testScoreStatusMessage;
+    
     private List<TrainingApplicationReference> references = new ArrayList<TrainingApplicationReference>();
 
     private List<TrainingApplicationPreviousEducation> previousEducation = new ArrayList<TrainingApplicationPreviousEducation>();
@@ -159,4 +162,19 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
     }
+    
+	public String getTestScore() {
+		return testScore;
+	}
+	public void setTestScore(String testScore) {
+		this.testScore = testScore;
+	}
+	public String getTestScoreStatusMessage() {
+		return testScoreStatusMessage;
+	}
+	public void setTestScoreStatusMessage(String testScoreStatusMessage) {
+		this.testScoreStatusMessage = testScoreStatusMessage;
+	}
+    
+    
 }
