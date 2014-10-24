@@ -18,4 +18,4 @@
 
 -- Builds namespace related to training application
 
-INSERT INTO `KRCR_NMSPC_T` (`NMSPC_CD`,`OBJ_ID`,`VER_NBR`,`NM`,`ACTV_IND`,`APPL_ID`) VALUES ('KRA-TRNG',uuid(),1,'Training App','Y','RICE');
+INSERT INTO KRCR_NMSPC_T (NMSPC_CD, OBJ_ID, VER_NBR, NM, ACTV_IND, APPL_ID) VALUES ('KRA-TRNG',uuid(),1,'Training App','Y','RICE');
