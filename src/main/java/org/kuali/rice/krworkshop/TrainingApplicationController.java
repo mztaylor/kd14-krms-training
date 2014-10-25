@@ -29,12 +29,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Brian
- * Date: 10/3/12
- * Time: 10:58 AM
- * To change this template use File | Settings | File Templates.
- */
+*
+* Controller to manage the application
+*
+* @author Kuali Rice Team (rice.collab@kuali.org)
+*/
 @Controller
 @RequestMapping(value = "/collegeapp")
 public class TrainingApplicationController extends UifControllerBase {

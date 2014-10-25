@@ -247,6 +247,7 @@
 								<password>${impex.dba.password}</password>
 								<srcFiles>
 									<srcFile>src/main/config/shared/db/${db.vendor}/setup/000-rice-db-232.sql</srcFile>
+									<srcFile>src/main/config/shared/db/${db.vendor}/setup/001-namespace.sql</srcFile>									
 								</srcFiles>
 							</configuration>
 						</execution>
@@ -270,6 +271,21 @@
 								</srcFiles>
 							</configuration>
 						</execution>
+						<execution>
+							<id>setup-krms</id>
+							<phase>none</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<url>${impex.url}</url>
+								<username>${impex.username}</username>
+								<password>${impex.password}</password>
+								<srcFiles>
+									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/001-databojects.sql</srcFile>
+								</srcFiles>
+							</configuration>
+						</execution>						
 						<execution>
 							<id>roleupdate</id>
 							<phase>none</phase>

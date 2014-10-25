@@ -283,6 +283,9 @@
     <property name="description" value="address of the Applicant."/>
   </bean>
 
+
+
+
   <bean id="Application-city" parent="Application-city-parentBean"/>
   <bean id="Application-city-parentBean" abstract="true" parent="AttributeDefinition">
     <property name="name" value="city"/>
@@ -336,6 +339,8 @@
     <property name="summary" value="zip code of the Applicant."/>
     <property name="description" value="zip code of the Applicant."/>
   </bean>
+
+
 
   <bean id="Application-decisionStatus" parent="Application-decisionStatus-parentBean"/>
   <bean id="Application-decisionStatus-parentBean" abstract="true" parent="AttributeDefinition">
