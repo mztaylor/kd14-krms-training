@@ -395,7 +395,7 @@
 				<impex.dba.username>root</impex.dba.username>
 				<impex.dba.password>root</impex.dba.password>
 				<impex.username>ricetraining</impex.username>
-				<impex.password>ricetraining</impex.password>
+				<impex.password>NONE</impex.password>
 				<impex.dba.url>jdbc:mysql://localhost:3306</impex.dba.url>
 				<impex.url>${impex.dba.url}/${impex.database}</impex.url>
 				<jdbc.groupId>mysql</jdbc.groupId>
