@@ -393,9 +393,9 @@
 				<impex.driver>com.mysql.jdbc.Driver</impex.driver>
 				<impex.database>ricetraining</impex.database>
 				<impex.dba.username>root</impex.dba.username>
-				<impex.dba.password>root</impex.dba.password>
+				<impex.dba.password>NONE</impex.dba.password>
 				<impex.username>ricetraining</impex.username>
-				<impex.password>NONE</impex.password>
+				<impex.password>ricetraining</impex.password>
 				<impex.dba.url>jdbc:mysql://localhost:3306</impex.dba.url>
 				<impex.url>${impex.dba.url}/${impex.database}</impex.url>
 				<jdbc.groupId>mysql</jdbc.groupId>
