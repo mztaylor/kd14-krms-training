@@ -36,6 +36,8 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
 
     private List<TrainingApplicationPreviousEducation> previousEducation = new ArrayList<TrainingApplicationPreviousEducation>();
 
+    private List<TrainingApplicationQuestion> questions = new ArrayList<TrainingApplicationQuestion>();
+    
     private String decisionStatus;
     private boolean accepted;
 
@@ -159,4 +161,10 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
     }
+	public List<TrainingApplicationQuestion> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(List<TrainingApplicationQuestion> questions) {
+		this.questions = questions;
+	}
 }
