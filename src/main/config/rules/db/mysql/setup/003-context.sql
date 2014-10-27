@@ -13,6 +13,5 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 --
-insert into KRMS_TYP_T (TYP_ID, NM, NMSPC_CD, ACTV, VER_NBR) values ('KRTRN-TYPE-300', 'CONTEXT', 'KRA-TRNG', 'Y', 1);
-insert into KRMS_TYP_T (TYP_ID, NM, NMSPC_CD, ACTV, VER_NBR) values ('KRTRN-TYPE-301', 'AGENDA', 'KRA-TRNG', 'Y', 1);
-insert into KRMS_CNTXT_T (CNTXT_ID, NMSPC_CD, NM, TYP_ID, ACTV, VER_NBR, DESC_TXT) values ('KRTRN-CONTEXT', 'KRA-TRNG', 'Apply Now', 'KRTRN-TYPE-300', 'Y', 1, 'KRMS Training Context');
+insert into `KRMS_TYP_T` (`TYP_ID`,`NM`,`NMSPC_CD`,`ACTV`,`VER_NBR) values ('KRTRN-TYPE-300','CONTEXT','KRA-TRNG','Y',1);
+insert into 'KRMS_CNTXT_T' ('CNTXT_ID','NMSPC_CD','NM','TYP_ID','ACTV','VER_NBR','DESC_TXT') values ('KRTRN-CONTEXT','KRA-TRNG','Apply Now','KRTRN-TYPE-300','Y',1,'KRMS Training Context');
