@@ -384,7 +384,7 @@
         <bean parent="Uif-InputField" p:label="Question" p:propertyName="question" p:readOnly="true"/>
         <bean parent="Uif-InputField" p:label="Answer" p:propertyName="answer" p:required="true">
           <property name="control">
-            <bean parent="Uif-TextAreaControl"/>
+            <bean parent="Uif-TextControl"/>
           </property>
         </bean>
       </list>
