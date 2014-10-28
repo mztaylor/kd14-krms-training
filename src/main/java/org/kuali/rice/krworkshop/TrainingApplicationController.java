@@ -76,9 +76,10 @@ public class TrainingApplicationController extends UifControllerBase {
 		TrainingApplicationForm tForm = (TrainingApplicationForm) form;
 
 		// Execute the agenda and get the results
-		Map <String, Boolean> ruleResults = executeQuestionnaireAgenda(tForm);		
+		Map <String, Boolean> ruleResults = executeQuestionnaireAgenda(tForm);	
 		
         // add questions based on rule results
+		tForm.setQuestions(Questionnaires.getCommonQuestions());
         if (ruleResults.get(Questionnaires.MATH_RULE) != null && ruleResults.get(Questionnaires.MATH_RULE).booleanValue()){
         	tForm.addQuestions(Questionnaires.getMathQuestions());
         }
