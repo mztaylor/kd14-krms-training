@@ -26,6 +26,9 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
     private String ethnicity;
     private String otherEthnicity;
 
+    private boolean ncaaParticipation;
+    private String country;
+
     private String address1;
     private String address2;
     private String city;
@@ -117,7 +120,19 @@ public class TrainingApplication extends PersistableBusinessObjectBase {
 	public void setOtherEthnicity(String otherEthnicity) {
 		this.otherEthnicity = otherEthnicity;
 	}
-	public String getAddress1() {
+    public boolean isNcaaParticipation() {
+        return ncaaParticipation;
+    }
+    public void setNcaaParticipation(boolean ncaaParticipation) {
+        this.ncaaParticipation = ncaaParticipation;
+    }
+    public String getCountry() {
+        return country;
+    }
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    public String getAddress1() {
 		return address1;
 	}
 	public void setAddress1(String address1) {

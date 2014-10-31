@@ -128,7 +128,7 @@
     <bean id="kewConfigurer" class="org.kuali.rice.kew.config.KEWConfigurer" />
     <bean id="locationConfigurer" class="org.kuali.rice.location.impl.config.LocationConfigurer" />
 
-
+    <bean id="krmsConfigurer" class="org.kuali.rice.krms.config.KRMSConfigurer" />
 
 	<import resource="classpath:ApplyModuleBeans.xml"/>
   
