@@ -28,6 +28,11 @@
     <property name="headerText" value="Training Application Maintenance"/>
     <property name="dataObjectClassName" value="org.kuali.rice.krworkshop.TrainingApplication"/>
     <property name="viewHelperServiceClass" value="org.kuali.rice.krworkshop.TrainingApplicationMaintainableImpl"/>
+    <property name="dialogs">
+            <list>
+                <bean id="applicationStatus" parent="ApplicationStatus-Dialog"/>
+            </list>
+    </property>
     <property name="items">
       <list merge="true">
         <!-- Application Info -->
@@ -253,6 +258,27 @@
             </list>
           </property>
         </bean>
+        
+         <bean parent="Uif-MaintenanceGridSection">
+          <property name="headerText" value="Test Score"/>
+           <property name="items">
+            <list>
+             <bean parent="Uif-HorizontalFieldGroup" p:label="Test Score">
+                <property name="items">
+                  <list>
+                  <bean parent="Uif-InputField" p:label="" p:propertyName="testScore">
+                      <property name="validCharactersConstraint">
+                       <bean parent="IntegerPatternConstraint"/>
+                      </property>
+                    </bean>
+                   <bean parent="Uif-ActionLink" p:actionLabel="Application Status" p:methodToCall="getApplicationStatus"/>
+                  </list>
+                 </property>
+               </bean>
+            </list>
+          </property>
+        </bean>
+        
         <bean parent="Uif-MaintenanceGridSection">
           <property name="render" value="@{document.documentHeader.workflowDocument.status.code != 'I'
                                        and document.documentHeader.workflowDocument.status.code != 'S'}"/>
@@ -345,4 +371,37 @@
 	</property>
 	<property name="resultsGroup.renderLineActions" value="true"/>
   </bean>
+  
+   <bean id="ApplicationStatus-Dialog" parent="Uif-DialogGroup">
+        <property name="headerText" value="Application Status"/>
+        <property name="style" value="width:650px;"/>
+        <property name="items">
+            <list>
+                    <bean parent="Uif-MessageField"
+                           p:messageText="@{#dp.testScoreStatusMessage}"/>
+            </list>
+        </property>
+
+         <property name="footer">
+        <bean parent="Uif-FooterBase">
+                    <property name="items">
+                        <list>
+                            <bean parent="Uif-HorizontalBoxSection">
+                                <property name="items">
+                                    <list>
+                                        <bean parent="Uif-PrimaryActionButton" 
+                                              p:actionScript="closeLightbox();"
+                                            	 p:actionLabel="Close"/>
+                                    </list>
+                                </property>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                   </property>
+        <property name="availableResponses">
+            <list></list>
+        </property>
+    </bean>  
+    
 </beans>

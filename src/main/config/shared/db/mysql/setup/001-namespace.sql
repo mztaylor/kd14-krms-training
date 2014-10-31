@@ -1,5 +1,5 @@
 --
--- Copyright 2005-2014 The Kuali Foundation
+-- Copyright 2005-2013 The Kuali Foundation
 --
 -- Licensed under the Educational Community License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 -- limitations under the License.
 --
 
-INSERT INTO `KRMS_TERM_SPEC_T` VALUES('T1009','testScore','java.lang.Integer','Y',1,'application form test score ','KR-RULE-TEST');
-INSERT INTO `KRMS_CNTXT_VLD_TERM_SPEC_T` VALUES ('T1008','CONTEXT1','T1009','N');
-INSERT INTO `KRMS_TERM_T` VALUES ('T1008','T1009',1,'Test score term');
+
+
+-- Builds namespace related to training application
+
+INSERT INTO KRCR_NMSPC_T (NMSPC_CD, OBJ_ID, VER_NBR, NM, ACTV_IND, APPL_ID) VALUES ('KRA-TRNG',uuid(),1,'Training App','Y','RICE');

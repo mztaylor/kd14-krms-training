@@ -43,6 +43,10 @@ public class TrainingApplicationForm extends UifFormBase {
     private String city;
     private String state;
     private String zip;
+    
+    private String testScore;
+    private String testScoreStatusMessage;
+    
 
     private List<TrainingApplicationReference> references = new ArrayList<TrainingApplicationReference>();
 
@@ -209,4 +213,24 @@ public class TrainingApplicationForm extends UifFormBase {
     public void setDecisionStatus(String decisionStatus) {
         this.decisionStatus = decisionStatus;
     }
+    
+	public String getTestScore() {
+		return testScore;
+	}
+
+	public void setTestScore(String testScore) {
+		this.testScore = testScore;
+	}
+
+	public String getTestScoreStatusMessage() {
+		return testScoreStatusMessage;
+	}
+
+	public void setTestScoreStatusMessage(String testScoreStatusMessage) {
+		this.testScoreStatusMessage = testScoreStatusMessage;
+	}
+
+
+	
+    
 }

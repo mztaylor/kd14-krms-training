@@ -56,6 +56,16 @@
                            http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 
+
+  <!-- List of all the base packages which we must scan as part of any module.  --> 
+  <util:list id="jpaPackagesToScan">
+    <value>org.kuali.rice.krworkshop</value>
+  </util:list>
+  
+  <import resource="classpath:org/kuali/rice/core/CommonSpringBeans.xml"/>
+  <import resource="classpath:org/kuali/rice/krad/config/KRADDependentModuleCommonImports.xml" />
+  <import resource="ApplyJpaSpringBeans.xml"/>
+	
   <bean id="applyModuleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
     <property name="namespaceCode" value="apply"/>
     <property name="initializeDataDictionary" value="true"/>
@@ -75,9 +85,10 @@
         <value>classpath:org/kuali/rice/krworkshop/krad/TrainingApplicationView-Lab7-messages.xml</value>
       </list>
     </property>
-    <property name="databaseRepositoryFilePaths">
+    <property name="providers">
       <list>
-        <value>OJB-rice-training-app.xml</value>
+        <ref bean="jpaPersistenceProvider"/>
+        <ref bean="metadataProvider"/>
       </list>
     </property>
     <property name="packagePrefixes">

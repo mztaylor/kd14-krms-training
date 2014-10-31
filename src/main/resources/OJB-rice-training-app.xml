@@ -35,7 +35,7 @@
     </sequence-manager>
   </jdbc-connection-descriptor>
 
-<!-- training application form -->
+<!-- training application form 
 <class-descriptor class="org.kuali.rice.krworkshop.TrainingApplication" table="TRNG_APP_DOC_T">
     <field-descriptor name="id" column="TRNG_APP_DOC_ID" jdbc-type="VARCHAR" primarykey="true" autoincrement="true" sequence-name="TRNG_APP_DOC_ID_S"/>
     <field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" indexed="true"/>
@@ -78,5 +78,5 @@
     <field-descriptor name="address" column="ADDR" jdbc-type="VARCHAR"/>
     <field-descriptor name="relationship" column="RELATN" jdbc-type="VARCHAR"/>
  </class-descriptor>
-
+-->
 </descriptor-repository>
