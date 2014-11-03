@@ -102,6 +102,11 @@
     <property name="moduleConfiguration" ref="applyModuleConfiguration"/>
   </bean>
 
+  <!-- make the beans in this context reachable via the GlobalResourceLoader -->
+  <bean class="org.kuali.rice.core.framework.resourceloader.RiceSpringResourceLoaderConfigurer">
+    <property name="localServiceName" value="ApplyApplicationContext"/>
+  </bean>
+
 	<bean id="grlBeanImporter" abstract="true" class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean" p:singleton="true" p:mustExist="true" />
 	<bean id="rice.ksb.serviceBus" p:serviceName="rice.ksb.serviceBus" parent="grlBeanImporter" />
 
@@ -119,6 +124,11 @@
 	<bean parent="roleTypeServiceCallback" 
 		      p:callbackService-ref="namespaceRoleTypeService"
 		      p:localServiceName="namespaceRoleTypeService" />
+
+  <bean id="applicationTermResolverTypeService" class="org.kuali.rice.krworkshop.rules.ApplicationTermResolverTypeService" />
+
+  <alias name="applicationTermResolverTypeService" alias="ncaaParticipationTermResolver" />
+  <alias name="applicationTermResolverTypeService" alias="studentCountryCodeTermResolver" />
 
 </beans>
 
