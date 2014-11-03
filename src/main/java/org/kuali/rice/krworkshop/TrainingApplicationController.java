@@ -16,13 +16,17 @@
 package org.kuali.rice.krworkshop;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.kuali.rice.krworkshop.service.KrmsRulesExecutionService;
+import org.kuali.rice.krworkshop.service.impl.KrmsRulesExecutionServiceImpl;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.web.controller.UifControllerBase;
 import org.kuali.rice.krad.web.form.UifFormBase;
@@ -51,12 +55,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/collegeapp")
 public class TrainingApplicationController extends UifControllerBase {
-
+    private KrmsRulesExecutionService krmsRulesExecutionService;
+    
 	@Override
 	protected UifFormBase createInitialForm() {
 		// Create a form and set generic, default questions
 		TrainingApplicationForm form = new TrainingApplicationForm();
-		form.setQuestions( Questionnaires.getCommonQuestions() );
+		form.setQuestions( Questionnaires.getQuestions(Questionnaires.COMMON.name()) );
 
 		return form;
 	}
@@ -75,72 +80,32 @@ public class TrainingApplicationController extends UifControllerBase {
             HttpServletRequest request, HttpServletResponse response) {
 		TrainingApplicationForm tForm = (TrainingApplicationForm) form;
 
+		// Build up our facts
+		Facts.Builder factsBuilder = Facts.Builder.create();
+		factsBuilder.addFact("college", tForm.getCollege());
+		factsBuilder.addFact("campus", tForm.getCampus());
+		
 		// Execute the agenda and get the results
-		Map <String, Boolean> ruleResults = executeQuestionnaireAgenda(tForm);	
+		Map <String, Boolean> ruleResults = getKrmsRulesExecutionService().executeAgenda(Questionnaires.AGENDA_NAME, factsBuilder);	
 		
         // add questions based on rule results
-		tForm.setQuestions(Questionnaires.getCommonQuestions());
-        if (ruleResults.get(Questionnaires.MATH_RULE) != null && ruleResults.get(Questionnaires.MATH_RULE).booleanValue()){
-        	tForm.addQuestions(Questionnaires.getMathQuestions());
-        }
-        if (ruleResults.get(Questionnaires.MUSIC_RULE) != null && ruleResults.get(Questionnaires.MUSIC_RULE).booleanValue()){
-        	tForm.addQuestions(Questionnaires.getMusicQuestions());
-        }
-        if (ruleResults.get(Questionnaires.BIZ_RULE) != null && ruleResults.get(Questionnaires.BIZ_RULE).booleanValue()){
-        	tForm.addQuestions(Questionnaires.getBusinessQuestions());
-        }
-        if (ruleResults.get(Questionnaires.CS_RULE) != null && ruleResults.get(Questionnaires.CS_RULE).booleanValue()){
-        	tForm.addQuestions(Questionnaires.getComputerQuestions());
-        }
+		for (Map.Entry<String, Boolean> entry : ruleResults.entrySet()){
+			if (entry.getValue().booleanValue() == true){
+				tForm.addQuestions(Questionnaires.getQuestions(entry.getKey()));
+			}
+		}
         
 		return getModelAndView(form);
 	}
 	
-	/*
-	 * Executes a KRMS agenda containing a set of rules related to the student application.
-	 * 
-	 * @return Map of rule name / result value pairs. 
-	 */
-	private Map <String, Boolean> executeQuestionnaireAgenda(TrainingApplicationForm form){
-		// Build selection criteria used by KRMS to choose agenda and setup execution environment
-	    Map<String, String> contextQualifiers = new HashMap<String, String>();
-	    Map<String,String> agendaQualifiers = new HashMap<String,String>();
-	    contextQualifiers.put("namespaceCode", Questionnaires.NAMESPACE);
-	    agendaQualifiers.put("name", Questionnaires.AGENDA_NAME);	    
-		SelectionCriteria selectionCriteria = SelectionCriteria.createCriteria(null, contextQualifiers, agendaQualifiers);
+    public KrmsRulesExecutionService getKrmsRulesExecutionService() {
+    	if (krmsRulesExecutionService == null){
+    		krmsRulesExecutionService = new KrmsRulesExecutionServiceImpl();
+    	}
+        return krmsRulesExecutionService;
+    }
 
-		// The Facts.Builder holds our inputs for the KRMS engine
-		Facts.Builder factsBuilder = Facts.Builder.create();
-		factsBuilder.addFact("college", form.getCollege());
-		factsBuilder.addFact("campus", form.getCampus());	
-
-		// Turn the KRMS logger on
-		ExecutionOptions xOptions = new ExecutionOptions();
-		xOptions.setFlag(ExecutionFlag.LOG_EXECUTION, true);
-
-		// Execute the Agenda and get the results
-		EngineResults results = KrmsApiServiceLocator.getEngine().execute(selectionCriteria, factsBuilder.build(), xOptions);
-
-		// Pull out the individual rule results from the EngineResults collection object
-        Map <String, Boolean> ruleResults = new HashMap<String, Boolean>();		
-        if (results.getResultsOfType(ResultEvent.RULE_EVALUATED) != null && results.getResultsOfType(ResultEvent.RULE_EVALUATED).size() > 0) {
-            for (ResultEvent resultEvent : results.getResultsOfType(ResultEvent.RULE_EVALUATED)) {
-            	
-                String ruleName = ((BasicRule)resultEvent.getSource()).getName();
-                ruleResults.put(ruleName, resultEvent.getResult());
-            }
-        }
-        
-        return ruleResults;
-	}
-	
-/*    public ModelAndView submit(@ModelAttribute("KualiForm") UifFormBase uifForm, BindingResult result,
-            HttpServletRequest request, HttpServletResponse response) {
-        //set View to readOnly
-        uifForm.getView().setReadOnly(true);
-        //Put a message in the MessageMap to display on the page
-        GlobalVariables.getMessageMap().putInfo("Training-CollegeApplicationPage", "message.route.successful");
-
-        return getUIFModelAndView(uifForm);
-    }*/
+    public void setKrmsRulesExecutionService(KrmsRulesExecutionService krmsRulesExecutionService) {
+        this.krmsRulesExecutionService = krmsRulesExecutionService;
+    }
 }

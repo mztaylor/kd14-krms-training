@@ -108,6 +108,8 @@
 	<bean parent="roleTypeServiceCallback" 
 		      p:callbackService-ref="namespaceRoleTypeService"
 		      p:localServiceName="namespaceRoleTypeService" />
+		      
+    <bean id="krmsRulesExecutionService" class="org.kuali.rice.krworkshop.service.impl.KrmsRulesExecutionServiceImpl"/>
 
 </beans>
 
