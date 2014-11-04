@@ -78,16 +78,20 @@ public class TrainingApplicationController extends UifControllerBase {
 		TrainingApplicationForm tForm = (TrainingApplicationForm) form;
 
 		// Build up our facts
+		Facts.Builder factsBuilder = Facts.Builder.create();
+		factsBuilder.addFact("college", tForm.getCollege());
+		factsBuilder.addFact("campus", tForm.getCampus());
 		
 		// Execute the agenda and get the results
+		Map <String, Boolean> ruleResults = getKrmsRulesExecutionService().executeAgenda(Questionnaires.AGENDA_NAME, factsBuilder);	
 		
         // add questions based on rule results
-//		tForm.setQuestions(Questionnaires.getQuestions(Questionnaires.COMMON.name()));
-//		for (Map.Entry<String, Boolean> entry : ruleResults.entrySet()){
-//			if (entry.getValue().booleanValue() == true){
-//				tForm.addQuestions(Questionnaires.getQuestions(entry.getKey()));
-//			}
-//		}
+		tForm.setQuestions(Questionnaires.getQuestions(Questionnaires.COMMON.name()));
+		for (Map.Entry<String, Boolean> entry : ruleResults.entrySet()){
+			if (entry.getValue().booleanValue() == true){
+				tForm.addQuestions(Questionnaires.getQuestions(entry.getKey()));
+			}
+		}
 
 		return getModelAndView(form);
 	}

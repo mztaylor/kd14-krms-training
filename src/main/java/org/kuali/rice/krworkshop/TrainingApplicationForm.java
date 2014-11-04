@@ -52,6 +52,8 @@ public class TrainingApplicationForm extends UifFormBase {
 
     private List<TrainingApplicationPreviousEducation> previousEducation = new ArrayList<TrainingApplicationPreviousEducation>();
 
+    private List<TrainingApplicationQuestion> questions = new ArrayList<TrainingApplicationQuestion>();
+    
     private String decisionStatus;
 
     public String getTerm() {
@@ -231,6 +233,16 @@ public class TrainingApplicationForm extends UifFormBase {
 	}
 
 
+	public List<TrainingApplicationQuestion> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<TrainingApplicationQuestion> questions) {
+		this.questions = questions;
+	}
 	
-    
+	public void addQuestions(List<TrainingApplicationQuestion> questions) {
+		this.questions.addAll(questions);
+	}
+	   
 }
