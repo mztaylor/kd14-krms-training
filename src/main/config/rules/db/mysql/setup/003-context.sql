@@ -1,5 +1,5 @@
 --
--- Copyright 2005-2013 The Kuali Foundation
+-- Copyright 2005-2014 The Kuali Foundation
 --
 -- Licensed under the Educational Community License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -13,9 +13,5 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 --
-
-
-
--- Builds namespace related to training application
-
-REPLACE INTO KRCR_NMSPC_T (NMSPC_CD,OBJ_ID,VER_NBR,NM,ACTV_IND,APPL_ID) VALUES ('KRA-TRNG',uuid(),1,'Training App','Y','RICE');
+insert into KRMS_TYP_T (TYP_ID,NM,NMSPC_CD,ACTV,VER_NBR) values ('KRTRN-TYPE-300','CONTEXT','KRA-TRNG','Y',1);
+insert into KRMS_CNTXT_T (CNTXT_ID,NMSPC_CD,NM,TYP_ID,ACTV,VER_NBR,DESC_TXT) values ('KRTRN-CONTEXT','KRA-TRNG','Apply Now','KRTRN-TYPE-300','Y',1,'KRMS Training Context');
