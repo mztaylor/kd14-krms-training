@@ -26,7 +26,7 @@ public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
 
     @Override
     public EngineResults execute(RouteContext routeContext, Engine engine) {
-        System.err.println("!!!!! calling " + this.getClass().getSimpleName() + ".execute() !!!!!");
+        System.out.println("!!!!! calling " + this.getClass().getSimpleName() + ".execute() !!!!!");
 
         // TODO: select the appropriate Context and Agenda
 
@@ -45,16 +45,12 @@ public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
         Facts.Builder factsBuilder = Facts.Builder.create();
 
         // TODO: Add a fact to the Facts.Builder
+
         // TODO: <solution>
         factsBuilder.addFact(XML_TERM_NAME, getMaintenanceDocumentXml(routeContext));
         // TODO: </solution>
 
-        // TODO: call the engine
-        // TODO: <solution>
         return engine.execute(selectionCriteria, factsBuilder.build(), null);
-        // TODO: </solution>
-
-//        return null;
     }
 
     public String getMaintenanceDocumentXml(RouteContext routeContext) {

@@ -64,10 +64,17 @@
           <qualifierResolverClass>org.kuali.rice.kns.workflow.attribute.DataDictionaryQualifierResolver</qualifierResolverClass>
           <activationType>P</activationType>
         </role>
+
         <requests name="ApplicationRulesReview">
           <activationType>R</activationType>
+
+          <!-- TODO: <solution> -->
           <rulesEngine executorClass="org.kuali.rice.krworkshop.rules.ApplicationRulesEngineExecutor" />
+          <!-- TODO: </solution> -->
+
         </requests>
+
+
       </routeNodes>
     </documentType>
   </documentTypes>
