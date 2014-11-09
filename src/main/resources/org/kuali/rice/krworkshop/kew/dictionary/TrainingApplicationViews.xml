@@ -205,9 +205,9 @@
                   <bean parent="Uif-DropdownControl">
                     <property name="options">
                       <list>
-                        <bean parent="Uif-KeyLabelPair" p:key="USA" p:value="United States" />
-                        <bean parent="Uif-KeyLabelPair" p:key="ALB" p:value="Albania" />
-                        <bean parent="Uif-KeyLabelPair" p:key="DZA" p:value="Algeria" />
+                        <bean parent="Uif-KeyLabelPair" p:key="USA" p:value="United States (USA)" />
+                        <bean parent="Uif-KeyLabelPair" p:key="ALB" p:value="Albania (ALB)" />
+                        <bean parent="Uif-KeyLabelPair" p:key="DZA" p:value="Algeria (DZA)" />
                         <bean parent="Uif-KeyLabelPair" p:key="..." p:value="..." />
                       </list>
                     </property>

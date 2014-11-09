@@ -129,8 +129,11 @@
 
   <bean id="applicationTermResolverTypeService" class="org.kuali.rice.krworkshop.rules.ApplicationTermResolverTypeService" />
 
-  <alias name="applicationTermResolverTypeService" alias="ncaaParticipationTermResolver" />
   <alias name="applicationTermResolverTypeService" alias="studentCountryCodeTermResolver" />
+
+  <!-- TODO: <solution> -->
+  <alias name="applicationTermResolverTypeService" alias="ncaaParticipationTermResolver" />
+  <!-- TODO: </solution> -->
 
 </beans>
 

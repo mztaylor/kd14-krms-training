@@ -4,12 +4,16 @@
 
 -- KIM perm and roles
 
-insert into KRIM_PERM_T (PERM_ID, NMSPC_CD, PERM_TMPL_ID, NM, DESC_TXT, ACTV_IND, OBJ_ID, VER_NBR)
-  values ('KRATRN-CTXT_PERM', 'KRA-TRNG', 52, 'Maintain KRMS Agenda', 'View and maintain Agendas in the KRA-TRNG namespace', 'Y', UUID(), 1)
-;
+-- insert into KRIM_PERM_T (PERM_ID, NMSPC_CD, PERM_TMPL_ID, NM, DESC_TXT, ACTV_IND, OBJ_ID, VER_NBR)
+--   values ('KRATRN-CTXT_PERM', 'KRA-TRNG', 52, 'Maintain KRMS Agenda', 'View and maintain Agendas in the KRA-TRNG namespace', 'Y', UUID(), 1)
+-- ;
+
+-- insert into KRIM_ROLE_PERM_T (ROLE_PERM_ID, OBJ_ID, ROLE_ID, PERM_ID)
+--   values ('KRATRN-KRMS-1', uuid(), 'KRATRN-ADMN_ROLE', 'KRATRN-CTXT_PERM')
+-- ;
 
 insert into KRIM_ROLE_PERM_T (ROLE_PERM_ID, OBJ_ID, ROLE_ID, PERM_ID)
-  values ('KRATRN-KRMS-1', uuid(), 'KRATRN-ADMN_ROLE', 'KRATRN-CTXT_PERM')
+  values ('KRATRN-KRMS-1', uuid(), 'KRATRN-ADMN_ROLE', 'KRTRN-KIM-PERM-01')
 ;
 
 INSERT INTO KRIM_ROLE_T(ROLE_ID, OBJ_ID, VER_NBR, ROLE_NM, NMSPC_CD, DESC_TXT, KIM_TYP_ID, ACTV_IND, LAST_UPDT_DT)
@@ -47,7 +51,7 @@ INSERT INTO KREW_PPL_FLW_MBR_T (PPL_FLW_MBR_ID, PPL_FLW_ID, ACTN_RQST_PLCY_CD, M
 --  Context
 
 insert into KRMS_CNTXT_T (CNTXT_ID, NMSPC_CD, NM, DESC_TXT)
-values ('KRATRN-1-CNTXT', 'KRA-TRNG', 'StudentApplication', 'Context for Student Application rules')
+values ('KRATRN-1-CNTXT', 'KRA-TRNG', 'StudentApplicationWorkflow', 'Context for Student Application Workflow rules')
 ;
 
 insert into KRMS_CNTXT_VLD_ACTN_TYP_T (CNTXT_VLD_ACTN_ID, CNTXT_ID, ACTN_TYP_ID)
@@ -81,7 +85,7 @@ insert into KRMS_TERM_RSLVR_T (TERM_RSLVR_ID, NMSPC_CD, NM, TYP_ID, OUTPUT_TERM_
 -- Student Application agenda
 
 INSERT INTO KRMS_AGENDA_T (AGENDA_ID, CNTXT_ID, NM)
-  VALUES ('KRATRN-KRMS-APPL-AGENDA', 'KRATRN-1-CNTXT', 'Student Application')
+  VALUES ('KRATRN-KRMS-APPL-AGENDA', 'KRATRN-1-CNTXT', 'Student Application Workflow')
 ;
 
 INSERT INTO KRMS_PROP_T (PROP_ID, DESC_TXT, DSCRM_TYP_CD, RULE_ID)

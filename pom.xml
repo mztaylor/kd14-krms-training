@@ -268,13 +268,29 @@
 									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/004-permissions.sql</srcFile>
 									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/005-responsibilities.sql</srcFile>
 									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/006-role-members.sql</srcFile>
-									<srcFile>src/main/config/rules/db/${db.vendor}/setup/001-dataobjects.sql</srcFile>
-									<srcFile>src/main/config/rules/db/${db.vendor}/setup/003-context.sql</srcFile>
-									<srcFile>src/main/config/rules/db/${db.vendor}/setup/004-permissions.sql</srcFile>
-									<srcFile>src/main/config/rules/db/${db.vendor}/setup/005-term-specification.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
+            <execution>
+              <id>setup-3</id>
+              <phase>none</phase>
+              <goals>
+                <goal>execute</goal>
+              </goals>
+              <configuration>
+                <url>${impex.url}</url>
+                <username>${impex.username}</username>
+                <password>${impex.password}</password>
+                <srcFiles>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/001-dataobjects.sql</srcFile>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/003-context.sql</srcFile>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/004-permissions.sql</srcFile>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/005-term-specification.sql</srcFile>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/006-wf-prereqs.sql</srcFile>
+                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/007-wf-givens.sql</srcFile>
+                </srcFiles>
+              </configuration>
+            </execution>
 						<execution>
 							<id>setup-krms</id>
 							<phase>none</phase>
@@ -464,6 +480,10 @@
 								<id>setup-2</id>
 								<phase>install</phase>
 							</execution>
+              <execution>
+                <id>setup-3</id>
+                <phase>install</phase>
+              </execution>
 						</executions>
 					</plugin>
 					<plugin>
@@ -638,10 +658,14 @@
 								<id>setup</id>
 								<phase>install</phase>
 							</execution>
-							<execution>
-								<id>setup-2</id>
-								<phase>install</phase>
-							</execution>
+              <execution>
+                <id>setup-2</id>
+                <phase>install</phase>
+              </execution>
+              <execution>
+                <id>setup-3</id>
+                <phase>install</phase>
+              </execution>
 							<execution>
 								<id>solution</id>
 								<phase>install</phase>

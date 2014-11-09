@@ -20,8 +20,8 @@ import java.util.Map;
 public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
 
     private static final String CONTEXT_NAMESPACE_CODE = "KRA-TRNG";
-    private static final String CONTEXT_NAME = "StudentApplication";
-    private static final String AGENDA_NAME = "Student Application";
+    private static final String CONTEXT_NAME = "StudentApplicationWorkflow";
+    private static final String AGENDA_NAME = "Student Application Workflow";
     private static final String XML_TERM_NAME = "maintDocContent";
 
     @Override
