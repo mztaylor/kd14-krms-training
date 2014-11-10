@@ -78,9 +78,9 @@
 		<training.db.solution5.sql>src/main/config/workflow/db/${db.vendor}/solutions/005-solution.sql</training.db.solution5.sql>
 		
 		<!-- KRMS: training solutions -->
-		<training.db.rules.solution1.sql>src/main/config/rules/solutions/001-solution.sql</training.db.rules.solution1.sql>
-		<training.db.rules.solution2.sql>src/main/config/rules/solutions/002-solution.sql</training.db.rules.solution2.sql>
-		<training.db.rules.solution3.sql>src/main/config/rules/solutions/003-solution.sql</training.db.rules.solution3.sql>
+		<training.db.rules.solution1.sql>src/main/config/rules/db/${db.vendor}/solutions/001-solution.sql</training.db.rules.solution1.sql>
+		<training.db.rules.solution2.sql>src/main/config/rules/db/${db.vendor}/solutions/002-solution.sql</training.db.rules.solution2.sql>
+		<training.db.rules.solution3.sql>src/main/config/rules/db/${db.vendor}/solutions/003-solution.sql</training.db.rules.solution3.sql>
 
 		
 	</properties>
