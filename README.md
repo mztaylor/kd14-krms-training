@@ -1,7 +1,7 @@
 # Kuali Days 2014 KRMS Training
 
 # Purpose
-To help users understand the functionality related to KRMS and how to add it to their client applications
+To help users understand the functionality related to KRMS and how to apply it to their client applications
 
 # Setup
 
