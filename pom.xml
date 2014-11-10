@@ -69,13 +69,20 @@
 		<plugin.compiler.source>1.6</plugin.compiler.source>
 		<plugin.compiler.target>1.6</plugin.compiler.target>
 
-		<!-- training solutions -->
+		<!-- KEW: training solutions -->
 		<training.db.solution.sql></training.db.solution.sql>		
 		<training.db.solution1.sql>src/main/config/workflow/db/${db.vendor}/solutions/001-solution.sql</training.db.solution1.sql>
 		<training.db.solution2.sql>src/main/config/workflow/db/${db.vendor}/solutions/002-solution.sql</training.db.solution2.sql>
 		<training.db.solution3.sql>src/main/config/workflow/db/${db.vendor}/solutions/003-solution.sql</training.db.solution3.sql>
 		<training.db.solution4.sql>src/main/config/workflow/db/${db.vendor}/solutions/004-solution.sql</training.db.solution4.sql>
 		<training.db.solution5.sql>src/main/config/workflow/db/${db.vendor}/solutions/005-solution.sql</training.db.solution5.sql>
+		
+		<!-- KRMS: training solutions -->
+		<training.db.rules.solution1.sql>src/main/config/rules/solutions/001-solution.sql</training.db.rules.solution1.sql>
+		<training.db.rules.solution2.sql>src/main/config/rules/solutions/002-solution.sql</training.db.rules.solution2.sql>
+		<training.db.rules.solution3.sql>src/main/config/rules/solutions/003-solution.sql</training.db.rules.solution3.sql>
+
+		
 	</properties>
 
 	<repositories>
@@ -271,26 +278,26 @@
 								</srcFiles>
 							</configuration>
 						</execution>
-            <execution>
-              <id>setup-3</id>
-              <phase>none</phase>
-              <goals>
-                <goal>execute</goal>
-              </goals>
-              <configuration>
-                <url>${impex.url}</url>
-                <username>${impex.username}</username>
-                <password>${impex.password}</password>
-                <srcFiles>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/001-dataobjects.sql</srcFile>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/003-context.sql</srcFile>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/004-permissions.sql</srcFile>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/005-term-specification.sql</srcFile>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/006-wf-prereqs.sql</srcFile>
-                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/007-wf-givens.sql</srcFile>
-                </srcFiles>
-              </configuration>
-            </execution>
+						<execution>
+					              <id>setup-3</id>
+					              <phase>none</phase>
+					              <goals>
+					                <goal>execute</goal>
+					              </goals>
+					              <configuration>
+					                <url>${impex.url}</url>
+					                <username>${impex.username}</username>
+					                <password>${impex.password}</password>
+					                <srcFiles>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/001-dataobjects.sql</srcFile>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/003-context.sql</srcFile>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/004-permissions.sql</srcFile>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/005-term-specification.sql</srcFile>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/006-wf-prereqs.sql</srcFile>
+					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/007-wf-givens.sql</srcFile>
+					                </srcFiles>
+					              </configuration>
+					            </execution>
 						<execution>
 							<id>setup-krms</id>
 							<phase>none</phase>
@@ -305,7 +312,37 @@
 									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/001-databojects.sql</srcFile>
 								</srcFiles>
 							</configuration>
-						</execution>						
+						</execution>
+						<execution>
+							<id>setup-krms-exercise1</id>
+							<phase>none</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<url>${impex.url}</url>
+								<username>${impex.username}</username>
+								<password>${impex.password}</password>
+								<srcFiles>
+									<srcFile>src/main/config/rules/solutions/exercise1/001-add-term-resolver.sql</srcFile>
+								</srcFiles>
+							</configuration>
+						</execution>
+						<execution>
+							<id>setup-krms-exercise3</id>
+							<phase>none</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<url>${impex.url}</url>
+								<username>${impex.username}</username>
+								<password>${impex.password}</password>
+								<srcFiles>
+									<srcFile>src/main/config/rules/solutions/exercise1/001-add-term-resolver.sql</srcFile>
+								</srcFiles>
+							</configuration>
+						</execution>
 						<execution>
 							<id>roleupdate</id>
 							<phase>none</phase>
@@ -480,10 +517,10 @@
 								<id>setup-2</id>
 								<phase>install</phase>
 							</execution>
-              <execution>
-                <id>setup-3</id>
-                <phase>install</phase>
-              </execution>
+					              <execution>
+					                <id>setup-3</id>
+					                <phase>install</phase>
+					              </execution>
 						</executions>
 					</plugin>
 					<plugin>
@@ -595,6 +632,7 @@
 				</plugins>
 			</build>
 		</profile>
+		<!-- KEW Training: Solutions -->
 		<profile>
 		<id>solution1</id>
 			<activation>
@@ -658,14 +696,14 @@
 								<id>setup</id>
 								<phase>install</phase>
 							</execution>
-              <execution>
-                <id>setup-2</id>
-                <phase>install</phase>
-              </execution>
-              <execution>
-                <id>setup-3</id>
-                <phase>install</phase>
-              </execution>
+					              <execution>
+						                <id>setup-2</id>
+						                <phase>install</phase>
+					              </execution>
+					              <execution>
+						                <id>setup-3</id>
+						                <phase>install</phase>
+					              </execution>
 							<execution>
 								<id>solution</id>
 								<phase>install</phase>
@@ -695,6 +733,36 @@
 				</plugins>
 			</build>
 		</profile>
+		<!-- KEW Training: End of Solutions -->
+		<!-- KRMS Training: Solutions -->
+		<profile>
+		<id>krms-solution1</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<training.db.solution.sql>${training.db.rules.solution1.sql}</training.db.solution.sql>		
+			</properties>
+		</profile>
+		<profile>
+		<id>krms-solution2</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<training.db.solution.sql>${training.db.rules.solution2.sql}</training.db.solution.sql>		
+			</properties>
+		</profile>
+		<profile>
+		<id>krms-solution2</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<training.db.solution.sql>${training.db.rules.solution3.sql}</training.db.solution.sql>		
+			</properties>
+		</profile>		
+		<!-- KRMS Training: End of Solutions -->
 		<profile>
 			<id>itests</id>
 			<activation>
