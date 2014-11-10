@@ -754,7 +754,7 @@
 			</properties>
 		</profile>
 		<profile>
-		<id>krms-solution2</id>
+		<id>krms-solution3</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
