@@ -68,9 +68,9 @@
         <requests name="ApplicationRulesReview">
           <activationType>R</activationType>
 
-          <!-- TODO: <solution> -->
+          <!-- <solution> -->
           <rulesEngine executorClass="org.kuali.rice.krworkshop.rules.ApplicationRulesEngineExecutor" />
-          <!-- TODO: </solution> -->
+          <!-- </solution> -->
 
         </requests>
 

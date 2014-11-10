@@ -1,7 +1,3 @@
---
--- TODO: Run configs for executing SQL
---
-
 -- KIM perm and roles
 
 -- insert into KRIM_PERM_T (PERM_ID, NMSPC_CD, PERM_TMPL_ID, NM, DESC_TXT, ACTV_IND, OBJ_ID, VER_NBR)

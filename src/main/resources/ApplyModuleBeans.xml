@@ -127,13 +127,9 @@
 		      
     <bean id="krmsRulesExecutionService" class="org.kuali.rice.krworkshop.service.impl.KrmsRulesExecutionServiceImpl"/>
 
-  <bean id="applicationTermResolverTypeService" class="org.kuali.rice.krworkshop.rules.ApplicationTermResolverTypeService" />
+  <bean id="studentCountryCodeTermResolver" class="org.kuali.rice.krworkshop.rules.ApplicationTermResolverTypeService" />
 
-  <alias name="applicationTermResolverTypeService" alias="studentCountryCodeTermResolver" />
-
-  <!-- TODO: <solution> -->
-  <alias name="applicationTermResolverTypeService" alias="ncaaParticipationTermResolver" />
-  <!-- TODO: </solution> -->
+  <!-- TODO: add applicationTermResolverTypeService bean -->
 
 </beans>
 

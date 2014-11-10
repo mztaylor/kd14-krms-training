@@ -19,9 +19,14 @@ import java.util.Map;
  */
 public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
 
+    // qualifier keys:
+    private static final String NAMESPACE_CODE = "namespaceCode";
+    private static final String NAME = "name";
+
     private static final String CONTEXT_NAMESPACE_CODE = "KRA-TRNG";
     private static final String CONTEXT_NAME = "StudentApplicationWorkflow";
     private static final String AGENDA_NAME = "Student Application Workflow";
+
     private static final String XML_TERM_NAME = "maintDocContent";
 
     @Override
@@ -33,31 +38,18 @@ public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
         Map<String, String> contextQualifiers = new HashMap<String, String>();
         Map<String, String> agendaQualifiers = new HashMap<String, String>();
 
-        // TODO: <solution>
-        contextQualifiers.put("namespaceCode", CONTEXT_NAMESPACE_CODE);
-        contextQualifiers.put("name", CONTEXT_NAME);
-        agendaQualifiers.put("name", AGENDA_NAME);
-        // TODO: </solution>
-
         SelectionCriteria selectionCriteria = SelectionCriteria.createCriteria(null, contextQualifiers, agendaQualifiers);
 
         // build prerequisite facts
         Facts.Builder factsBuilder = Facts.Builder.create();
 
         // TODO: Add a fact to the Facts.Builder
-        // TODO: <solution>
-        factsBuilder.addFact(XML_TERM_NAME, getMaintenanceDocumentXml(routeContext));
-        // TODO: </solution>
 
-        // TODO: call the engine
-        // TODO: <solution>
-        return engine.execute(selectionCriteria, factsBuilder.build(), null);
-        // TODO: </solution>
-
-//        return null;
+        // TODO: return the results of engine.execute(...) instead
+        return null;
     }
 
-    public String getMaintenanceDocumentXml(RouteContext routeContext) {
+    private String getMaintenanceDocumentXml(RouteContext routeContext) {
         String maintDocContent = null;
 
         try {
