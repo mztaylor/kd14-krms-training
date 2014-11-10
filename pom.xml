@@ -299,7 +299,7 @@
 					              </configuration>
 					        </execution>
 						<execution>
-							<id>krmsExercise1</id>
+							<id>setup-krms-exercise1</id>
 							<phase>none</phase>
 							<goals>
 								<goal>execute</goal>
@@ -517,7 +517,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>roleupdate</id>
+			<id>setup-krms-exercise1</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
@@ -531,7 +531,7 @@
 						<artifactId>sql-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>roleupdate</id>
+								<id>setup-krms-exercise1</id>
 								<phase>install</phase>
 							</execution>
 						</executions>
