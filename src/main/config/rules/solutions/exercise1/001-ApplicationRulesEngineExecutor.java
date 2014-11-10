@@ -19,25 +19,30 @@ import java.util.Map;
  */
 public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
 
+    // qualifier keys:
+    private static final String NAMESPACE_CODE = "namespaceCode";
+    private static final String NAME = "name";
+
     private static final String CONTEXT_NAMESPACE_CODE = "KRA-TRNG";
-    private static final String CONTEXT_NAME = "StudentApplication";
-    private static final String AGENDA_NAME = "Student Application";
+    private static final String CONTEXT_NAME = "StudentApplicationWorkflow";
+    private static final String AGENDA_NAME = "Student Application Workflow";
+
     private static final String XML_TERM_NAME = "maintDocContent";
 
     @Override
     public EngineResults execute(RouteContext routeContext, Engine engine) {
-        System.out.println("!!!!! calling " + this.getClass().getSimpleName() + ".execute() !!!!!");
+        System.err.println("!!!!! calling " + this.getClass().getSimpleName() + ".execute() !!!!!");
 
         // TODO: select the appropriate Context and Agenda
 
         Map<String, String> contextQualifiers = new HashMap<String, String>();
         Map<String, String> agendaQualifiers = new HashMap<String, String>();
 
-        // TODO: <solution>
+        // <solution>
         contextQualifiers.put("namespaceCode", CONTEXT_NAMESPACE_CODE);
         contextQualifiers.put("name", CONTEXT_NAME);
         agendaQualifiers.put("name", AGENDA_NAME);
-        // TODO: </solution>
+        // </solution>
 
         SelectionCriteria selectionCriteria = SelectionCriteria.createCriteria(null, contextQualifiers, agendaQualifiers);
 
@@ -46,14 +51,16 @@ public class ApplicationRulesEngineExecutor implements RulesEngineExecutor {
 
         // TODO: Add a fact to the Facts.Builder
 
-        // TODO: <solution>
+        // <solution>
         factsBuilder.addFact(XML_TERM_NAME, getMaintenanceDocumentXml(routeContext));
-        // TODO: </solution>
+        // </solution>
 
+        // <solution>
         return engine.execute(selectionCriteria, factsBuilder.build(), null);
+        // </solution>
     }
 
-    public String getMaintenanceDocumentXml(RouteContext routeContext) {
+    private String getMaintenanceDocumentXml(RouteContext routeContext) {
         String maintDocContent = null;
 
         try {

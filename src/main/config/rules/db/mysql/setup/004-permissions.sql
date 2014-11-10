@@ -17,8 +17,8 @@
 
 
 -- Builds permissions related to training application
-INSERT INTO `KRIM_PERM_T` (`PERM_ID`,`OBJ_ID`,`VER_NBR`,`PERM_TMPL_ID`,`NMSPC_CD`,`NM`,`DESC_TXT`) 
+INSERT INTO KRIM_PERM_T (PERM_ID,OBJ_ID,VER_NBR,PERM_TMPL_ID,NMSPC_CD,NM,DESC_TXT)
 VALUES ('KRTRN-KIM-PERM-01', uuid(), 1, '52', 'KRA-TRNG', 'Maintain KRMS Agenda', 'Allows creation and modification of agendas via the agenda editor');
 
-INSERT INTO `KRIM_ROLE_PERM_T` (`ROLE_PERM_ID`,`OBJ_ID`,`VER_NBR`,`ROLE_ID`,`PERM_ID`,`ACTV_IND`)
+INSERT INTO KRIM_ROLE_PERM_T (ROLE_PERM_ID,OBJ_ID,VER_NBR,ROLE_ID,PERM_ID,ACTV_IND)
 VALUES ('KRTRN-KIM-ROLE-PERM-01', uuid(), 1, '98', 'KRTRN-KIM-PERM-01', 'Y');

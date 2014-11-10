@@ -32,6 +32,12 @@
     <ul class="chan">
         <li><portal:portalLink displayTitle="true" title="User Preferences" url="${ConfigProperties.kew.url}/Preferences.do?returnLocation=${ConfigProperties.application.url}/portal.do" /></li>
     </ul>
-    
+
+    <ul class="chan">
+        Rules + Workflow Code Labs:
+        <li><portal:portalLink displayTitle="true" title="Kuali University - Create Application" url="${ConfigProperties.application.url}/kr-krad/trainingApplication?methodToCall=start&viewId=Training-MaintenanceView&dataObjectClassName=org.kuali.rice.krworkshop.TrainingApplication&returnLocation=${ConfigProperties.application.url}/portal.do&hideReturnLink=true"/></li>
+        <li><portal:portalLink displayTitle="true" title="Kuali University - Training Application Lookup" url="${ConfigProperties.application.url}/kr-krad/lookup?methodToCall=start&viewId=Training-LookupView&showMaintenanceLinks=true&returnLocation=${ConfigProperties.application.url}/portal.do&hideReturnLink=true"/></li>
+    </ul>
+
 </div>
 <channel:portalChannelBottom />
