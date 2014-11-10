@@ -297,22 +297,7 @@
 					                  <srcFile>src/main/config/rules/db/${db.vendor}/setup/007-wf-givens.sql</srcFile>
 					                </srcFiles>
 					              </configuration>
-					            </execution>
-						<execution>
-							<id>setup-krms</id>
-							<phase>none</phase>
-							<goals>
-								<goal>execute</goal>
-							</goals>
-							<configuration>
-								<url>${impex.url}</url>
-								<username>${impex.username}</username>
-								<password>${impex.password}</password>
-								<srcFiles>
-									<srcFile>src/main/config/workflow/db/${db.vendor}/setup/001-databojects.sql</srcFile>
-								</srcFiles>
-							</configuration>
-						</execution>
+					        </execution>
 						<execution>
 							<id>setup-krms-exercise1</id>
 							<phase>none</phase>
@@ -324,22 +309,7 @@
 								<username>${impex.username}</username>
 								<password>${impex.password}</password>
 								<srcFiles>
-									<srcFile>src/main/config/rules/solutions/exercise1/001-add-term-resolver.sql</srcFile>
-								</srcFiles>
-							</configuration>
-						</execution>
-						<execution>
-							<id>setup-krms-exercise3</id>
-							<phase>none</phase>
-							<goals>
-								<goal>execute</goal>
-							</goals>
-							<configuration>
-								<url>${impex.url}</url>
-								<username>${impex.username}</username>
-								<password>${impex.password}</password>
-								<srcFiles>
-									<srcFile>src/main/config/rules/solutions/exercise1/001-add-term-resolver.sql</srcFile>
+									<srcFile>src/main/config/rules/db/${db.vendor}/updates/001-add-term-resolver.sql</srcFile>
 								</srcFiles>
 							</configuration>
 						</execution>
